@@ -1,0 +1,7 @@
+{
+  "name": "ssj",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

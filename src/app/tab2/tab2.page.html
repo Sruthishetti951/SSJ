@@ -1,0 +1,78 @@
+<ion-content [fullscreen]="true">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Add Item</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="createItemFormGroup">
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true" >
+          <ng-template>
+            <ion-datetime id="datetime" formControlName="date" presentation="date" required></ion-datetime>
+          </ng-template>
+        </ion-modal>
+          @if(createItemFormGroup.get('date')?.touched || (createItemFormGroup.get('date')?.invalid && createItemFormGroup.get('date')?.dirty)){
+            @if (createItemFormGroup.get('date')?.errors?.['required']) {
+              <span class="error">Required</span>
+            }
+          }
+      <ion-radio-group formControlName="orderType" required>
+        <div class="radio">
+          <ion-radio value="Bought" labelPlacement="end" >Bought</ion-radio>
+          <ion-radio value="Sold" labelPlacement="end" >Sold</ion-radio>
+        </div>
+      </ion-radio-group>
+        @if(createItemFormGroup.get('orderType')?.touched || (createItemFormGroup.get('orderType')?.invalid && createItemFormGroup.get('orderType')?.dirty)){
+          @if (createItemFormGroup.get('orderType')?.errors?.['required']) {
+            <span class="error">Required</span>
+          }
+        }
+      <ion-list>
+        <ion-item>
+          <ion-select aria-label="" placeholder="Select Item Type" formControlName="itemType" required>
+            <ion-select-option value="Gold">Gold</ion-select-option>
+            <ion-select-option value="Silver">Silver</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+        @if(createItemFormGroup.get('itemType')?.touched || (createItemFormGroup.get('itemType')?.invalid && createItemFormGroup.get('itemType')?.dirty)){
+          @if (createItemFormGroup.get('itemType')?.errors?.['required']) {
+            <span class="error">Required</span>
+          }
+        }
+      <div class="input" >
+        <ion-item>
+          <ion-input placeholder="Quantiy in grams" type="number" formControlName="itemQuantityGrams" required></ion-input>
+        </ion-item>
+          @if(createItemFormGroup.get('itemQuantityGrams')?.touched || (createItemFormGroup.get('itemQuantityGrams')?.invalid && createItemFormGroup.get('itemQuantityGrams')?.dirty)){
+            @if (createItemFormGroup.get('itemQuantityGrams')?.errors?.['required']) {
+              <span class="error">Required</span>
+            }
+          }
+        <ion-item>
+          <ion-input placeholder="Quantiy in Tula's" type="number" formControlName="itemQuantityTula" required></ion-input>
+        </ion-item>
+          @if(createItemFormGroup.get('itemQuantityTula')?.touched || (createItemFormGroup.get('itemQuantityTula')?.invalid && createItemFormGroup.get('itemQuantityTula')?.dirty)){
+            @if (createItemFormGroup.get('itemQuantityTula')?.errors?.['required']) {
+              <span class="error">Required</span>
+            }
+          }
+      </div>
+
+      <ion-item>
+        <ion-input placeholder="Price per gram" type="number" formControlName="price" required></ion-input>
+      </ion-item>
+        @if(createItemFormGroup.get('price')?.touched || (createItemFormGroup.get('price')?.invalid && createItemFormGroup.get('price')?.dirty)){
+          @if (createItemFormGroup.get('price')?.errors?.['required']) {
+            <span class="error">Required</span>
+          }
+        }
+      <ion-toolbar class="button">
+        <ion-button type="ion-button" (click)="submitForm()" >Submit</ion-button>
+      </ion-toolbar>
+    </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

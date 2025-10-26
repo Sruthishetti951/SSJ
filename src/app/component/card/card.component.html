@@ -1,0 +1,23 @@
+<div class="ion-margin-top">
+  @if (storedItems.length>0) {
+  @for (item of storedItems; track $index) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{item.itemType}}</ion-card-title>
+      <ion-card-subtitle>Transaction:{{item.orderType}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>Total:{{item.TotalAmount}}</div>
+      <div>Date:{{item.date}}</div>
+      <div>Quantity:{{item.itemQuantityGrams}}</div>
+      <div>Price/Gram:{{item.enteredPrice}}</div>
+    </ion-card-content>
+  </ion-card>
+  }
+  }@else {
+  <ion-card>
+    <ion-card-subtitle>No items in the list</ion-card-subtitle>
+  </ion-card>
+  }
+</div>

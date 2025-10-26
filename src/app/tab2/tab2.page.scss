@@ -1,0 +1,37 @@
+.radio{
+  display: flex;
+  align-items: center;
+  gap:20px
+}
+
+ion-card-content{
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.input{
+  display: flex;
+  gap:20px
+}
+
+ion-datetime-button{
+  justify-content: start !important;
+}
+
+ion-card-title{
+  text-align: center;
+}
+.error{
+  color: red;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+
